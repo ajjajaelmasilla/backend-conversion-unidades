@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: Unit Conversion Chatbot API
+  version: 1.0.0
+
+paths:
+  /api/conversion/distance/{value}/{fromUnit}/{toUnit}:
+    get:
+      summary: Convert distance
+      description: This endpoint supports conversions between meters (m), kilometers (km), miles (mi), feet (ft), and yards (yd).
+      parameters:
+        - name: value
+          in: path
+          required: true
+          schema:
+            type: number
+          example: 10
+        - name: fromUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "m"
+        - name: toUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "km"
+      responses:
+        '200':
+          description: Successful conversion
+          content:
+            application/json:
+              schema:
+                type: number
+              example: 0.01
+
+  /api/conversion/weight/{value}/{fromUnit}/{toUnit}:
+    get:
+      summary: Convert weight
+      description: This endpoint supports conversions between grams (g), kilograms (kg), pounds (lb), ounces (oz), and tons (ton).
+      parameters:
+        - name: value
+          in: path
+          required: true
+          schema:
+            type: number
+          example: 1000
+        - name: fromUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "g"
+        - name: toUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "kg"
+      responses:
+        '200':
+          description: Successful conversion
+          content:
+            application/json:
+              schema:
+                type: number
+              example: 1
+
+  /api/conversion/volume/{value}/{fromUnit}/{toUnit}:
+    get:
+      summary: Convert volume
+      description: This endpoint supports conversions between liters (l), milliliters (ml), gallons (gal), pints (pt), and barrels (bbl).
+      parameters:
+        - name: value
+          in: path
+          required: true
+          schema:
+            type: number
+          example: 1000
+        - name: fromUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "ml"
+        - name: toUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "l"
+      responses:
+        '200':
+          description: Successful conversion
+          content:
+            application/json:
+              schema:
+                type: number
+              example: 1
+
+  /api/conversion/temperature/{value}/{fromUnit}/{toUnit}:
+    get:
+      summary: Convert temperature
+      description: This endpoint supports conversions between Celsius (c), Fahrenheit (f), Kelvin (k), Rankine (r), and Réaumur (re).
+      parameters:
+        - name: value
+          in: path
+          required: true
+          schema:
+            type: number
+          example: 100
+        - name: fromUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "c"
+        - name: toUnit
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "f"
+      responses:
+        '200':
+          description: Successful conversion
+          content:
+            application/json:
+              schema:
+                type: number
+              example: 212
